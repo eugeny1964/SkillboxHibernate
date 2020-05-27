@@ -6,11 +6,12 @@ import model.Student;
 import model.Teacher;
 import org.hibernate.Hibernate;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Program {
     public static void main(String[] args) {
-        Student student = (Student)DAO.getObjectById(1L, Student.class);
+        Student student = (Student)DAO.getObjectById(11L, Student.class);
         System.out.println(student);
         Teacher teacher = (Teacher) DAO.getObjectById(1L, Teacher.class);
         System.out.println(teacher);
@@ -23,6 +24,8 @@ public class Program {
         System.out.println(course);
         List<Student> students = course.getList();
         System.out.println(students);
+        LocalDateTime data = student.getDateTime();
+        System.out.println(data);
         DAO.closeOpenedSession();
     }
 }

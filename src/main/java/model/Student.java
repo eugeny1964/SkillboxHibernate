@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,8 @@ public class Student {
     private String name;
     private int age;
     @Column(name = "registration_date")
-    private String dateTime;
+ //   private String dateTime;
+    private LocalDateTime dateTime;
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(
             name = "Subscriptions",
@@ -37,7 +39,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, int age, String dateTime) {
+    public Student(String name, int age, LocalDateTime dateTime) {
         this.name = name;
         this.age = age;
         this.dateTime = dateTime;
@@ -77,11 +79,11 @@ public class Student {
         this.age = age;
     }
 
-    public String getDateTime() {
+    public LocalDateTime getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
 }
